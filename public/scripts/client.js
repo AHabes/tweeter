@@ -27,7 +27,8 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
@@ -67,6 +68,25 @@ const renderTweets = function(tweets) {
   });
 };
 
-renderTweets(data);
+const postTweets = function() {
+  $(document).ready(function() {
+    const form = $("form");
+    form.submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize(),
+      }).done(function() {
+        console.log('The tweet has been posted.');
+      })
+        .fail(function() {
+          console.log(`An error occurred.`);
+        });
+    });
+  });
+};
 
+renderTweets(data);
+postTweets();
 
