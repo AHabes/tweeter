@@ -1,4 +1,4 @@
-header {
+.html-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,7 +7,4 @@ header {
     height: 400px;
     width: 100%;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-
 }
-
-

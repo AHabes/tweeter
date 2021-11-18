@@ -1,0 +1,78 @@
+article {
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    transition: box-shadow .3s;
+}
+
+article:hover {
+    box-shadow: 7px 7px 7px 7px rgb(119, 125, 136);
+}
+
+article header {
+    display: flex;
+    height: 2.5em;
+    justify-content: space-between;
+}
+
+article header .user-details-container {
+    width: 35%;
+}
+
+article header .userImage {
+    float: left;
+    width: 40%;
+    height: 100%;
+}
+
+article header .name {
+    float: left;
+    margin: 15px;
+}
+
+article header .username {
+    float: right;
+    margin: 15px;
+}
+
+
+article footer {
+    display: flex;
+    justify-content: space-between;
+    height: 1em;
+    border-top: 3px solid gray;
+}
+
+article footer .date {
+    font-size: 15px;
+    margin: 5px;
+}
+
+article footer .media-icons {
+    font-size: 15px;
+    margin: 5px;
+}
+
+article footer .media-icons .fa-flag {
+    margin-right: 5px;
+}
+
+article footer .media-icons .fa-flag:hover {
+    color: navy;
+    font-size: 18px;
+}
+
+article footer .media-icons .fa-retweet:hover {
+    color: navy;
+    font-size: 18px;
+}
+
+article footer .media-icons .fa-heart {
+    margin-right: 5px;
+}
+
+article footer .media-icons .fa-heart:hover {
+    color: navy;
+    font-size: 18px;
+}

@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/display-tweet.css" type="text/css"/>
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -46,7 +47,7 @@
     </a>
 </nav>
 
-<header>
+<header class="html-header">
     <div>
         <img src="/images/profile-hex.png">
     </div>
@@ -71,6 +72,38 @@
                 </div>
             </form>
         </section>
+
+        <div class="tweetsContainer">
+
+            <article>
+                <header>
+                    <div class="user-details-container">
+                        <img class="userImage" src="images/Newton.png">
+                        <span class="name">Newton</span>
+                    </div>
+                    <span class="username">@SirIsaac</span>
+                </header>
+
+                <p>
+                    Sandeep Jain(FOUNDER) An IIT Roorkee alumnus and
+                    founder of GeeksforGeeks. Apart from GeeksforGeeks,
+                    he has worked with DE Shaw and Co. as a software
+                    developer and JIIT Noida as an assistant professor.
+                </p>
+                <footer>
+                    <span class="date">10 days ago</span>
+                    <div class="media-icons">
+                        <span> <i class="fas fa-flag"></i></span>
+                        <span> <i class="fas fa-retweet"></i></span>
+                        <span> <i class="far fa-heart"></i></span>
+                    </div>
+                </footer>
+
+            </article>
+
+        </div>
+
+
     </main>
 </div>
 </body>
