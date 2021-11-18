@@ -3,8 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: darkgoldenrod;
-    height: 400px;
-    width: 100%;
+    background-color: darkkhaki;
+    margin-top: 2.5em;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
