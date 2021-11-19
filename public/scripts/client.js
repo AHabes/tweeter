@@ -122,6 +122,24 @@ $(document).ready(function() {
       });
     });
   };
+
+  const displayArrowOnScroll = function() {
+    $("span[href='#top']").on('click', function() {
+      $("html, body").animate({scrollTop: 0}, "slow");
+      return false;
+    });
+
+    $(document).scroll(function() {
+      const y = $(this).scrollTop();
+      if (y > 500) {
+        $('.scrollUp').fadeIn();
+      } else {
+        $('.scrollUp').fadeOut();
+      }
+    });
+  };
+
+  displayArrowOnScroll();
   collapseInputForm();
   postTweets();
   loadTweets();
