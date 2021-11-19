@@ -44,16 +44,21 @@ $(document).ready(function() {
     const form = $("form");
     form.submit(function(e) {
       e.preventDefault();
-      $.ajax({
-        type: form.attr('method'),
-        url: form.attr('action'),
-        data: form.serialize(),
-      }).done(function() {
-        console.log('The tweet has been posted.');
-      })
-        .fail(function() {
-          console.log(`An error occurred.`);
-        });
+      const tweetText = $('#tweet-text').val();
+      if (tweetText === "" || tweetText === null)
+        window.alert('There is a problem with the tweet content.');
+      else {
+        $.ajax({
+          type: form.attr('method'),
+          url: form.attr('action'),
+          data: form.serialize(),
+        }).done(function() {
+          console.log('The tweet has been posted.');
+        })
+          .fail(function() {
+            console.log(`An error occurred.`);
+          });
+      }
     });
   };
 

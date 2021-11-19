@@ -11,6 +11,5 @@ const callback = function() {
   }
 };
 $(document).ready(function() {
-
   $('#tweet-text').on('input', callback);
 });
