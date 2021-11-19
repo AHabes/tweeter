@@ -43,7 +43,11 @@
     <span>tweeter</span>
     <a>
         <div><strong>Write</strong> a new tweet</div>
-        <div><i class="fa-solid fa-angles-down"></i></div>
+        <div>
+            <span id="collapseButton"><i class="fa-solid fa-angles-down"></i></span>
+        </div>
+
+
     </a>
 </nav>
 
@@ -60,7 +64,6 @@
 <div class="parent-of-main">
     <main class="container">
         <section class="new-tweet">
-            <h2>Compose Tweet</h2>
             <form method="post" action="/tweets/">
                 <label for="tweet-text">What are you humming about?</label>
                 <div class="textareaBottom">

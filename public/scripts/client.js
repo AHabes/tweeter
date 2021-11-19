@@ -109,6 +109,20 @@ $(document).ready(function() {
     });
   };
 
+  const collapseInputForm = function() {
+    $(function() {
+      const form = $('form');
+      $('#collapseButton').on('click', function() {
+        if (form.is(':hidden')) form.show();
+        form.animate({
+          'height': form.height() === 130 ? '0px' : '130px'
+        }, 'slow', function() {
+          if (form.height() === 0) form.hide();
+        });
+      });
+    });
+  };
+  collapseInputForm();
   postTweets();
   loadTweets();
 });

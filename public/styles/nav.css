@@ -24,3 +24,6 @@ a {
 .fa-solid.fa-angles-down {
     color: red;
 }
+.fa-solid.fa-angles-down:hover {
+    font-size: 30px;
+}
