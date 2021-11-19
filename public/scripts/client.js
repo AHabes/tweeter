@@ -12,7 +12,7 @@
 
 $(document).ready(function() {
   const createTweetElement = function(tweetData) {
-    return $(`<article class="tweet">
+    const tweet = $(`<article class="tweet">
                 <header>
                     <div class="user-details-container">
                         <img class="userImage" src=${tweetData.user.avatars}>
@@ -20,9 +20,7 @@ $(document).ready(function() {
                     </div>
                     <span class="username">${tweetData.user.handle}</span>
                 </header>
-                <p class="tweet-text">
-                    ${tweetData.content.text}
-                </p>
+                <!-- Tweet text goes here-->
                 <footer>
                     <span class="date">${timeago.format(tweetData.created_at)}</span>
                     <div class="media-icons">
@@ -32,6 +30,10 @@ $(document).ready(function() {
                     </div>
                 </footer>
             </article>`);
+
+    const userText = $("<p>").text(tweetData.content.text).addClass("tweet-text");
+    tweet.find('header').after(userText);
+    return tweet;
   };
 
   const renderTweets = function(tweets) {
