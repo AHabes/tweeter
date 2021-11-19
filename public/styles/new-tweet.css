@@ -21,7 +21,6 @@ textarea {
     width: 100%;
     height: 40px;
     line-height: 20px;
-    top: -35px;
     border: none;
     resize: none;
     position: relative;
@@ -31,9 +30,8 @@ textarea {
 
 .textareaBottom {
     border-bottom: 2px solid darkgray;
-    height: 10px;
-    margin-top: 40px;
-    margin-bottom: 10px;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
 }
 
 
@@ -41,9 +39,9 @@ textarea {
     background-color: darkblue;
     font-family: 'Bungee', cursive;
     color: white;
-    padding: 10px 10px;
+    padding: 0.5em 0.5em;
     text-align: center;
-    font-size: 15px;
+    font-size: 0.6em;
 
 }
 
@@ -54,12 +52,51 @@ textarea {
 
 
 .scrollUp {
-    font-size: 70px;
+    font-size: 3em;
     color: red;
     display: none;
     float: right;
     position: fixed;
-    bottom: 20px;
-    right:30px;
+    bottom: 0.3em;
+    right:0.6em;
     z-index: 1;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+
+    form {
+        height: 130px;
+    }
+
+    label {
+        font-size: 0.6em;
+    }
+
+    textarea {
+        font-size: 0.6em;
+    }
+
+    .textareaBottom {
+        border-bottom: 2px solid darkgray;
+        margin-top: 1em;
+        margin-bottom: 0.1em;
+    }
+
+    .new-tweet button {
+        padding: 0.5em 0.5em;
+        font-size: 0.4em;
+
+    }
+
+    .counter {
+        margin-top: 0.3em;
+        font-size: 0.7em;
+    }
+
+    .scrollUp {
+        font-size: 2.4em;
+        bottom: 0.3em;
+        right:0.6em;
+    }
 }
