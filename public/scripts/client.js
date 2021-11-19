@@ -9,6 +9,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 $(document).ready(function() {
   const createTweetElement = function(tweetData) {
     return $(`<article class="tweet">
@@ -36,34 +37,46 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
     }
   };
 
   const postTweets = function() {
     const form = $("form");
     form.submit(function(e) {
-      e.preventDefault();
       const tweetText = $('#tweet-text').val();
-      if (tweetText === "" || tweetText === null)
-        window.alert('There is a problem with the tweet content.');
-      else {
-        $.ajax({
-          type: form.attr('method'),
+      if (tweetText === "" || tweetText === null) {
+        alert('There is a problem with the tweet content.');
+        return false;
+      } else if (tweetText.length > MAX_CHARS) {
+        alert(`Tweets should be ${MAX_CHARS} long!`);
+        return false;
+      } else {
+        $.post({
+          type: "POST",
           url: form.attr('action'),
           data: form.serialize(),
-        }).done(function() {
-          console.log('The tweet has been posted.');
         })
+          .done(function() {
+            $.ajax({
+              url: "/tweets",
+              type: 'GET',
+              dataType: 'json',
+            }).done(function(res) {
+              const currentTweet = res[res.length - 1];
+              const $tweet = createTweetElement(currentTweet);
+              $('#tweets-container').prepend($tweet);
+            });
+          })
           .fail(function() {
             console.log(`An error occurred.`);
           });
+        e.preventDefault();
       }
     });
   };
 
   const loadTweets = function() {
-    console.log('Loading tweets');
     $.ajax({
       url: "/tweets",
       type: 'GET',
@@ -72,8 +85,6 @@ $(document).ready(function() {
         renderTweets(res);
       }
     });
-
-
   };
 
   postTweets();
