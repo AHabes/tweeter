@@ -36,7 +36,7 @@
     margin: 15px;
 }
 
-.tweet .tweet-text{
+.tweet .tweet-text {
     word-break: break-all;
     white-space: normal;
 }

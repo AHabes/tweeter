@@ -34,3 +34,15 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.error-empty-tweet {
+    font-size: 20px;
+    color: red;
+    margin-bottom: 15px;
+}
+
+.error-long-tweet {
+    font-size: 20px;
+    color: red;
+    margin-bottom: 15px;
+}

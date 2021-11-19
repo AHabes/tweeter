@@ -21,6 +21,7 @@ $(document).ready(function() {
                     <span class="username">${tweetData.user.handle}</span>
                 </header>
                 <!-- Tweet text goes here-->
+                
                 <footer>
                     <span class="date">${timeago.format(tweetData.created_at)}</span>
                     <div class="media-icons">
@@ -29,6 +30,7 @@ $(document).ready(function() {
                         <span> <i class="far fa-heart"></i></span>
                     </div>
                 </footer>
+      </div>
             </article>`);
 
     const userText = $("<p>").text(tweetData.content.text).addClass("tweet-text");
@@ -48,12 +50,29 @@ $(document).ready(function() {
     form.submit(function(e) {
       const tweetText = $('#tweet-text').val();
       if (tweetText === "" || tweetText === null) {
-        alert('There is a problem with the tweet content.');
+        const currentError = $('.parent-of-main').find('.error-long-tweet');
+        if (currentError) {
+          currentError.remove();
+        }
+        const error = $(`<div>
+          Tweets can't be empty. A tweet should be 1-140 characters long.
+        </div>`).addClass('error-empty-tweet');
+        $('.textareaBottom').after(error);
         return false;
+
       } else if (tweetText.length > MAX_CHARS) {
-        alert(`Tweets should be ${MAX_CHARS} long!`);
+        const currentError = $('.parent-of-main').find('.error-empty-tweet');
+        if (currentError) {
+          currentError.remove();
+        }
+        const error = $(`<div>
+          The tweet is too long. A tweet should be 1-140 characters long.
+        </div>`).addClass("error-long-tweet");
+        $('.textareaBottom').after(error);
         return false;
+
       } else {
+        $('.error-empty-tweet, .error-long-tweet').remove();
         $.post({
           type: "POST",
           url: form.attr('action'),
