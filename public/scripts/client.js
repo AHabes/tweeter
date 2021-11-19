@@ -20,7 +20,7 @@ $(document).ready(function() {
                     </div>
                     <span class="username">${tweetData.user.handle}</span>
                 </header>
-                <p>
+                <p class="tweet-text">
                     ${tweetData.content.text}
                 </p>
                 <footer>
@@ -67,6 +67,7 @@ $(document).ready(function() {
               const $tweet = createTweetElement(currentTweet);
               $('#tweets-container').prepend($tweet);
             });
+            form.trigger("reset");
           })
           .fail(function() {
             console.log(`An error occurred.`);
