@@ -11,6 +11,7 @@
  */
 
 $(document).ready(function() {
+  const  MAX_CHARS  =140;
   const createTweetElement = function(tweetData) {
     const tweet = $(`<article class="tweet">
                 <header>
@@ -79,6 +80,7 @@ $(document).ready(function() {
           data: form.serialize(),
         })
           .done(function() {
+            $('output').text(MAX_CHARS)
             $.ajax({
               url: "/tweets",
               type: 'GET',
